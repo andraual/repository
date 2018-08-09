@@ -23,33 +23,50 @@ public class main {
 		lj2.obterCarro("Fiat", "Mobi", 2018, "A");
 	
 		//Cliente cliente1 = new Cliente();
+		
+		
+		lj1.marcasDisponiveis();
+		
+		
 				
 		Object[] options = { "Cancelar", lj1.nomeLoja, lj2.nomeLoja }; 
-		int dialogButton = JOptionPane.showOptionDialog(null, "De qual loja deseja verificar os autom�veis?" , 
+		int dialogButton = JOptionPane.showOptionDialog(null, "De qual loja deseja verificar os autom�veis?" , 
 				"Alugar Carros", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
-        System.out.println(dialogButton);
+
+		System.out.println(dialogButton);
 		
         String nome_loja = new StringBuilder().append("lj").append(dialogButton).toString();
-         
-        
         //Method m = main.class.getMethod(nome_loja, String.class);
         
         
         //TODO: chamar a loja especifica
+        
+        if (dialogButton == 1) {
+        	JOptionPane.showMessageDialog(null, "Temos disponivel em nosso sistema "
+        			+lj1.quantosCarrosTem() + " carros", "Carros disponíveis",0);
+        	
+        	JOptionPane.showMessageDialog(null, "" , "Carros disponíveis",0);
+        	
+        	
+        	
+        }
+        
+        
+        else if (dialogButton == 2)
+        	JOptionPane.showMessageDialog(null, "Temos disponivel em nosso sistema "
+        			+lj2.quantosCarrosTem() + " carros", "Carros disponíveis",0);
+        
+        
+        
+        
+        
+        
         // mostrar quais carros tenho disponivel na loja por modelo
         //cliente selecionar
         //ao confirmar remover do array e mostrar mais uma tela com todos os dados do aluguel do automovel
         //nos dados de inicios colocar try catch
         //verificar se consegue colocar varios inputs no mesmo msgbox
         //veririfcar se consegue usar threads como clietes
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -65,9 +82,14 @@ public class main {
 //		lj1.fabricanteDisponiveis();
 		
 		
-		
-		
-		
 	}
 
 }
+
+
+
+
+
+
+//falar do github
+//falar da interface grafica

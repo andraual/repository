@@ -1,48 +1,61 @@
 import java.util.ArrayList;
 
+import javax.naming.CommunicationException;
+
 public class Loja {
 
-	public String nomeLoja;
+	public String nomeLoja, s;
 	public int Idloja;
-	public ArrayList<Carro> carros = new ArrayList();
+	private ArrayList<Carro> carros_disponiveis = new ArrayList();
+	private ArrayList<Carro> carros_alugados = new ArrayList();
+	
+	//todo: transformar o numero de carros da loja unicamente para  a loja
 	public static int numeroDeCarrosDaLoja;
 	
 	
-	public Loja(String nome,  int id) {
-		
+	public Loja (String nome,  int id) {
 		this.nomeLoja= nome;
 		this.Idloja = id;
 		
 	}
 	
-	
-	void alugarCarro() {	
-	}
-	
 	public void obterCarro(String fabricante, String modelo, int ano, String cambio) {
 		Carro car = new Carro(fabricante, modelo,ano, cambio,numeroDeCarrosDaLoja);
-		carros.add(car);
+		carros_disponiveis .add(car);
 		numeroDeCarrosDaLoja++;	
 		System.out.println("O carro foi adicionado a lista da loja."+" Numero: "+numeroDeCarrosDaLoja);
 	}
 	
-	public void quantosCarrosTem() {	
-		System.out.println("Temos "+ carros.size()+ " carros disponíveis");
+	public void alugarCarro() {
+		//todo: ao final do main de alugar chamar essa funÃ§ao para tirar de um vetor e colocar em outro
+		carros_alugados.add(param1);
+		carros_disponiveis.remove(0);
 	}
 	
+	
+	public int quantoscarrosTem() {	
+		return carros_disponiveis .size();
+	}
+	
+	
 	public void marcasDisponiveis() {	
-		for (int i = 0; i < carros.size(); i++) 
-			System.out.println(carros.get(i).modelo);
+		for (int i = 0; i < carros_disponiveis .size(); i++) {
+			System.out.println(carros_disponiveis .get(i).modelo);
+		 	System.out.println(i);
+			s = carros_disponiveis .get(i).modelo.append("ola");
+			System.out.println(s);
+		}
+		
 	}
 	
 	public void fabricanteDisponiveis() {	
-		for (int i = 0; i < carros.size(); i++)
-			System.out.println(carros.get(i).fabricante);
+		for (int i = 0; i < carros_disponiveis .size(); i++)
+			System.out.println(carros_disponiveis .get(i).fabricante);
 	}
 	
 	
-	public int numeroDeCarros() {
-		return carros.size();
+	public int numeroDecarros_disponiveis () {
+		return carros_disponiveis .size();
 		
 	}
 	
